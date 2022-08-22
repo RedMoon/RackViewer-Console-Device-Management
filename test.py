@@ -34,10 +34,16 @@ class Tokens:
         elif operation == 'command':
             def mul():
                 if (args[0] == "-add"):
-                    f = open('customCommands.txt','w')
-                    f.write(f"{args[1]}:{args[2]}") 
+                    f = open('customCommands.txt','a')
+                    name = str(args[1]).replace("\"" ,"")
+                    action = ""
+                    for i in range(2,len(args)):
+                        action += f" {args[i]}"
+                    #action = str(action).replace("\"" ,"")
+                    print(args[2])
+                    f.write(f"{name}:{action}\r\n") 
                     f.close()
-                return "variable.variables[args[0]]"
+                return f"command named {name} with action {action} was created!"
             return mul
         elif operation == 'execute':
             f = open('customCommands.txt', 'r')
