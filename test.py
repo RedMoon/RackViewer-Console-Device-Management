@@ -1,7 +1,6 @@
 from ast import arg
 from logging import exception
 from posixpath import split
-import sys  # Импортируем библиотеку sys
 import os  # Импортируем библиотеку os
 from termcolor import colored, cprint
 
@@ -44,7 +43,8 @@ class Tokens:
                 if (args[0] == line.split(":")[0]):
                     command = line.split(":")[1]
                     for i in range(len(args)):
-                        if(i == 0): i += 1
+                        if (i == 0):
+                            i += 1
                         command = command.replace(f"%{i}%", args[i])
                     os.system(command)
             f.close()
