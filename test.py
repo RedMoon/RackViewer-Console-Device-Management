@@ -12,7 +12,7 @@ class variable:
 
 
 class Tokens:
-    main = ["sum", "delete", "var", "$", "service", "execute"]
+    main = ["sum", "delete", "var", "$", "service", "execute","command"]
 
     def func_factory(operation, args):
         if operation == 'sum':
@@ -34,11 +34,13 @@ class Tokens:
         elif operation == 'command':
             def mul():
                 if (args[0] == "-add"):
-                    pass
-                return variable.variables[args[0]]
+                    f = open('customCommands.txt','w')
+                    f.write(f"{args[1]}:{args[2]}") 
+                    f.close()
+                return "variable.variables[args[0]]"
             return mul
         elif operation == 'execute':
-            f = f = open('customCommands.txt', 'r')
+            f = open('customCommands.txt', 'r')
             for line in f.readlines():
                 if (args[0] == line.split(":")[0]):
                     command = line.split(":")[1]
