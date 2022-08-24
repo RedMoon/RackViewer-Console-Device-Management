@@ -75,8 +75,6 @@ class Lexer:
         if Tokens.main.__contains__(vars[0]):
             func = Tokens.func_factory(vars[0], args=vars[1:])
             print(func())
-
-
 welcome = colored(
     'Welcome to the Rackviewer Console Device Management RVC 127.0.0.1 connected', 'red', attrs=['blink'])
 print(welcome)
