@@ -30,7 +30,7 @@ items = soup.find_all('div', class_='file_link')
 
 for n, i in enumerate(items, start=1):
     itemName = i.find('div', class_='header').find('a').text.strip()
-    if (str(itemName).__contains__(str(now.day + 1)) and str(itemName).__contains__(monthToNum(6))):
+    if (str(itemName).__contains__(str(now.day + 1)) and str(itemName).__contains__(monthToNum(now.month))):
         print(f'Выложено расписание: {itemName}')
         link = i.find('div', class_='header').find('a').get("href")
         print(f"{url}{link}")
